@@ -1,19 +1,17 @@
 #!/bin/bash
 
-#########################################################
-#                                                     	#
-#	 This script must be executed from your WordPress     #
-#	 website root directory. In most cases that will be   #
-#	 /home/$USERNAME/public_html directory, or            #
-#	 /home/$USERNAME/public_html/$WEBSITE directory       #
-#	                                                      #
-#   Installation                                        #
-#   1.    wget                                          #
-#   2.    chmod +x wpupinstall.sh					            	#
-#   3.    ./wpupinstall.sh						              		#
-#   4.    rm wpupinstall.sh			              					#
-#				                        							    			#
-#########################################################
+##
+#	 This script must be executed from your WordPress
+#	 website root directory. In most cases that will be
+#	 /home/$USERNAME/public_html directory, or
+#	 /home/$USERNAME/public_html/$WEBSITE directory
+#
+#   **Installation - Run the commands below.
+#   wget https://raw.githubusercontent.com/charter-hosting/wp-cli-website-auto-updater/master/wpupinstall.sh
+#   chmod +x wpupinstall.sh
+#   ./wpupinstall.sh
+#   rm wpupinstall.sh
+##
 
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --no-check-certificate
 chmod +x wp-cli.phar
