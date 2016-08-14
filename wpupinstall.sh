@@ -1,16 +1,34 @@
 #!/bin/bash
 
 ##
-#	 This script must be executed from your WordPress
-#	 website root directory. In most cases that will be
+#	 This script must be executed from your WordPress website root directory. In most cases that will be
 #	 /home/$USERNAME/public_html directory, or
-#	 /home/$USERNAME/public_html/$WEBSITE directory
+#	 /home/$USERNAME/public_html/$WORDPRESS directory
 #
-#   **Installation - Run the commands below.
+#   XXXXX Installation XXXXX Run the commands below
 #   wget https://raw.githubusercontent.com/charter-hosting/wp-cli-website-auto-updater/master/wpupinstall.sh
 #   chmod +x wpupinstall.sh
 #   ./wpupinstall.sh
 #   rm wpupinstall.sh
+#
+#   ---------------------------
+#   NOTE: If your hosting account is chrooted/jailkit, and there is no Unix Socket connection for WP-CLI,
+#   tell WP-CLI to use a TCP connection instead with the "if ( defined( 'WP_CLI' ) && WP_CLI )" statement.
+#
+#   Open the wp-config.php file and replace these lines:
+#
+#   /** MySQL hostname */
+#   define('DB_HOST', 'localhost:3306');
+#   
+#   With these lines:
+#
+#   /** Tell WP-CLI to use TCP instead of socket connection */
+#   if ( defined( 'WP_CLI' ) && WP_CLI ) {
+#   /** MySQL hostname for WP-CLI */
+#   define('DB_HOST', '127.0.0.1:3306');
+#   } else {
+#   /** MySQL hostname */
+#   define('DB_HOST', 'localhost'); }
 ##
 
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --no-check-certificate
@@ -25,10 +43,10 @@ timestamp() {
   date "+DATE: %D TIME: %r %Z"
 }
 timestamp
-wp core update
-wp core language update --all
 wp theme update --all
 wp plugin update --all
+wp core language update
+wp core update
 exit
 EOF
 
@@ -41,9 +59,9 @@ cat <<EOF >.htaccess
 EOF
 
 pwd=$(pwd)
-crontab -l > wpupdatecron
-echo "32 20 * * * "$pwd"/wpupdate.sh > "$pwd"/wpupdate.log" >> wpupdatecron
-crontab wpupdatecron
-rm wpupdatecron
+crontab -l > wpupdatecronsetup
+echo "32 20 * * * "$pwd"/wpupdate.sh > "$pwd"/wpupdate.log" >> wpupdatecronsetup
+crontab wpupdatecronsetup
+rm wpupdatecronsetup
 
 exit
