@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ##
-#	 This script must be executed from your WordPress website root directory. In most cases that will be
-#	 /home/$USERNAME/public_html directory, or
-#	 /home/$USERNAME/public_html/$WORDPRESS directory
+#   This script must be executed from your WordPress website root directory. In most cases that will be
+#   /home/$USERNAME/public_html directory, or
+#   /home/$USERNAME/public_html/$WORDPRESS directory
 #
 #   XXXXX Installation XXXXX Run the commands below
 #   wget https://raw.githubusercontent.com/charter-hosting/wp-cli-wp-auto-updater/master/wpupinstall.sh
