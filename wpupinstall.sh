@@ -36,8 +36,8 @@ timestamp() {
   date "+DATE: %D TIME: %r %Z"
 }
 
-tail wpupdate.log -n 100 > wpupdatetmp.log
-rm wpupdate.log && mv wpupdatetmp.log wpupdate.log
+# tail wpupdate.log -n 100 > wpupdatetmp.log
+# rm wpupdate.log && mv wpupdatetmp.log wpupdate.log
 
 timestamp
 wp theme update --all
