@@ -48,7 +48,7 @@ wp core update
 mail="subject:Update Notification for $domain\nfrom:wpupdate@$domain\nTime to Celebrate!\n\nYour WordPress website $domain is up to date."
 echo -e $mail | /usr/sbin/sendmail "$emailto"
 
-exit
+exit 0
 EOF
 
 echo Setting .htaccess rule to block direct access to update log and script file
