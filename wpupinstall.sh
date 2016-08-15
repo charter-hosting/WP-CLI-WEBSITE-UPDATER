@@ -6,7 +6,7 @@
 #   /home/$USERNAME/public_html/$WORDPRESS directory
 #
 #   XXXXX Installation XXXXX Run the commands below
-#   wget https://raw.githubusercontent.com/charter-hosting/wp-cli-wp-auto-updater/master/wpupinstall.sh
+#   wget https://raw.githubusercontent.com/charter-hosting/wp-cli-wp-auto-updater/master/wpupinstall.sh --no-check-certificate
 #   chmod +x wpupinstall.sh
 #   ./wpupinstall.sh
 #   rm wpupinstall.sh
