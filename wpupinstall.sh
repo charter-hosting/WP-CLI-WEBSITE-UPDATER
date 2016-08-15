@@ -31,6 +31,10 @@
 #   define('DB_HOST', 'localhost'); }
 ##
 
+# Change the values below prior to executing the script.
+domain=example.com
+emailto=you@example.com
+
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --no-check-certificate
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/bin/wp
@@ -64,4 +68,7 @@ echo "32 20 * * * "$pwd"/wpupdate.sh > "$pwd"/wpupdate.log" >> wpupdatecronsetup
 crontab wpupdatecronsetup
 rm wpupdatecronsetup
 
-exit
+mail="subject:"$domain"""Update Notification\nfrom:notify@charterhosting.com\nTime to Celebrate!\n\nYour WordPress website"""$domain"""is up to date."
+echo -e $mail | /usr/sbin/sendmail "$emailto"
+
+exit 0
