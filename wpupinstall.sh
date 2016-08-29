@@ -1,12 +1,15 @@
 #!/bin/bash
 
 ##
+#   BETA 0.1 - Intended for cPanel hosting accounts WITHOUT WP-CLI installed.
+#
 #   This script must be executed from your WordPress website root directory. In most cases that will be
 #   /home/$USERNAME/public_html directory, or
 #   /home/$USERNAME/public_html/$WORDPRESS directory
 #
 #   XXXXX Installation Commands XXXXX
 #   wget https://raw.githubusercontent.com/charter-hosting/wp-cli-wp-auto-updater/master/wpupinstall.sh --no-check-certificate
+#   nano wpupinstall.sh // Change the value on lines 19 & 20 to your information
 #   chmod +x wpupinstall.sh
 #   ./wpupinstall.sh
 #   rm wpupinstall.sh
@@ -16,7 +19,7 @@
 domain=example.com
 emailto=you@example.com
 
-# Download and configure WP-CLI from github.com
+# Nothing to change below this line.
 echo Downloading WP-CLI from github.com
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --no-check-certificate
 
